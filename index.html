@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        body {
+            max-width: 600px;
+            margin: auto;
+        }
+        #googleMap {
+            height: 400px;
+            width: 100%;
+            margin: 12px 0;
+        }
+        #orderForm {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px 0;
+        }
+        #orderForm > div {
+            margin: 6px 0;
+        }
+        #description {
+            font-size: 15px;
+            font-weight: 300;
+        }
+        .pac-card {
+            margin: 10px 10px 0 0;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+        }
+        div.pac-container {
+            padding-bottom: 12px;
+            position: relative !important;
+        }
+        .pac-controls {
+            display: inline-block;
+            padding: 5px 11px;
+        }
+        .pac-controls label {
+            font-size: 13px;
+            font-weight: 300;
+        }
+        .pac-input {
+            background-color: #fff;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 10px 12px 8px 14px;
+            text-overflow: ellipsis;
+            width: calc(100% - 55px);
+        }
+        .pac-input:focus {
+            border-color: #4d90fe;
+        }
+        #title {
+            color: #fff;
+            background-color: #4d90fe;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+<body>
+<script src="delivery-geolocation.js"></script>
+<script>
+    setTimeout(() => {
+        const module = new DeliveryByGeolocationModule({
+            placeholders: {
+                x: 'Адрес отправки',
+                y: 'Адрес получения',
+                destany_length: 'Длина маршрута'
+            }
+        });
+        module.init();
+        setTimeout(() => {
+            module.initMap();
+        }, 1000);
+    }, 1000);
+</script>
+</body>
+</html>
